@@ -1,0 +1,17 @@
+node_modules/
+.pnpm-store/
+
+.env
+.env.*
+!.env.example
+
+.DS_Store
+
+dist/
+build/
+coverage/
+
+.eslintcache
+
+.idea/
+.vscode/

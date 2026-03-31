@@ -1,0 +1,3 @@
+packages:
+  - "l-agent-rag"
+  - "l-agent-tool"

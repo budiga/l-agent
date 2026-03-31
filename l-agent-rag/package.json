@@ -1,0 +1,24 @@
+{
+  "name": "l-agent-rag",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@langchain/classic": "^1.0.27",
+    "@langchain/core": "^1.1.38",
+    "@langchain/openai": "^1.4.1",
+    "dotenv": "^17.3.1"
+  },
+  "devDependencies": {}
+}
