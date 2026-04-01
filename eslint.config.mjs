@@ -17,6 +17,7 @@ export default [
     },
     rules: {
       semi: ["error", "never"],
+      "no-irregular-whitespace": "off",
       "no-unused-vars": [
         "warn",
         {
