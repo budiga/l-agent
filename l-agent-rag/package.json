@@ -16,9 +16,11 @@
   "description": "",
   "dependencies": {
     "@langchain/classic": "^1.0.27",
+    "@langchain/community": "^1.1.27",
     "@langchain/core": "^1.1.38",
     "@langchain/openai": "^1.4.1",
+    "@langchain/textsplitters": "^1.0.1",
+    "cheerio": "^1.2.0",
     "dotenv": "^17.3.1"
-  },
-  "devDependencies": {}
+  }
 }
