@@ -78,6 +78,24 @@ importers:
         specifier: "link:@langchain/textsplitters\_"
         version: "link:@langchain/textsplitters\_"
 
+  l-agent-output-parser:
+    dependencies:
+      '@langchain/core':
+        specifier: ^1.1.38
+        version: 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+      '@langchain/openai':
+        specifier: ^1.4.1
+        version: 1.4.1(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(ws@8.20.0)
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      dotenv:
+        specifier: ^17.3.1
+        version: 17.3.1
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
+
   l-agent-rag:
     dependencies:
       '@langchain/classic':
@@ -3574,6 +3592,26 @@ snapshots:
       - openai
       - ws
 
+  '@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)':
+    dependencies:
+      '@cfworker/json-schema': 4.1.1
+      '@standard-schema/spec': 1.1.0
+      ansi-styles: 5.2.0
+      camelcase: 6.3.0
+      decamelize: 1.2.0
+      js-tiktoken: 1.0.21
+      langsmith: 0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+      mustache: 4.2.0
+      p-queue: 6.6.2
+      uuid: 11.1.0
+      zod: 4.3.6
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - '@opentelemetry/exporter-trace-otlp-proto'
+      - '@opentelemetry/sdk-trace-base'
+      - openai
+      - ws
+
   '@langchain/core@1.1.38(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)':
     dependencies:
       '@cfworker/json-schema': 4.1.1
@@ -3672,6 +3710,15 @@ snapshots:
       '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
       js-tiktoken: 1.0.21
       openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
+      zod: 4.3.6
+    transitivePeerDependencies:
+      - ws
+
+  '@langchain/openai@1.4.1(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(ws@8.20.0)':
+    dependencies:
+      '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+      js-tiktoken: 1.0.21
+      openai: 6.33.0(ws@8.20.0)(zod@4.3.6)
       zod: 4.3.6
     transitivePeerDependencies:
       - ws
@@ -5042,6 +5089,19 @@ snapshots:
       '@opentelemetry/api': 1.9.1
       openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
       ws: 5.2.4
+
+  langsmith@0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0):
+    dependencies:
+      '@types/uuid': 10.0.0
+      chalk: 5.6.2
+      console-table-printer: 2.15.0
+      p-queue: 6.6.2
+      semver: 7.7.4
+      uuid: 10.0.0
+    optionalDependencies:
+      '@opentelemetry/api': 1.9.1
+      openai: 6.33.0(ws@8.20.0)(zod@4.3.6)
+      ws: 8.20.0
 
   langsmith@0.5.15(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0):
     dependencies:
