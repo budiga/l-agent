@@ -75,12 +75,18 @@ importers:
 
   l-agent-prompt-template:
     dependencies:
+      '@langchain/community':
+        specifier: ^1.1.27
+        version: 1.1.27(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1021.0)(@aws-sdk/credential-provider-node@3.972.29)(@browserbasehq/sdk@2.9.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.0)(deepmerge@4.3.1)(dotenv@17.3.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(zod@4.3.6))(@ibm-cloud/watsonx-ai@1.7.10(typescript@6.0.2))(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(@opentelemetry/api@1.9.1)(@smithy/eventstream-codec@4.2.12)(@smithy/protocol-http@5.3.12)(@smithy/signature-v4@5.3.12)(@smithy/util-utf8@4.2.2)(@zilliz/milvus2-sdk-node@2.6.13)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.5.8)(html-to-text@9.0.5)(ibm-cloud-sdk-core@5.4.9)(ignore@7.0.5)(jsonwebtoken@9.0.3)(lodash@4.18.0)(mysql2@3.20.0(@types/node@18.19.130))(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(playwright@1.59.0)(ws@5.2.4)
       '@langchain/core':
         specifier: ^1.1.39
-        version: 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+        version: 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
       '@langchain/openai':
         specifier: ^1.4.3
-        version: 1.4.3(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(ws@8.20.0)
+        version: 1.4.3(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(ws@5.2.4)
+      '@zilliz/milvus2-sdk-node':
+        specifier: ^2.6.13
+        version: 2.6.13
       dotenv:
         specifier: ^17.3.1
         version: 17.3.1
@@ -126,6 +132,30 @@ importers:
       '@modelcontextprotocol/sdk':
         specifier: ^1.28.0
         version: 1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6)
+      chalk:
+        specifier: ^5.6.2
+        version: 5.6.2
+      dotenv:
+        specifier: ^17.3.1
+        version: 17.3.1
+      zod:
+        specifier: ^4.3.6
+        version: 4.3.6
+
+  runable:
+    dependencies:
+      '@langchain/core':
+        specifier: ^1.1.39
+        version: 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      '@langchain/mcp-adapters':
+        specifier: ^1.1.3
+        version: 1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(@langchain/langgraph@1.2.6(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(zod-to-json-schema@3.25.2(zod@4.3.6))(zod@4.3.6))
+      '@langchain/openai':
+        specifier: ^1.4.3
+        version: 1.4.3(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(ws@5.2.4)
+      '@zilliz/milvus2-sdk-node':
+        specifier: ^2.6.13
+        version: 2.6.13
       chalk:
         specifier: ^5.6.2
         version: 5.6.2
@@ -1492,6 +1522,9 @@ packages:
 
   '@zilliz/milvus2-sdk-node@2.6.12':
     resolution: {integrity: sha512-2g2e7aHZizXJK/RkgIDa23nxTN1w30fPEPkA4570f4qXFecCvAp87jhCQJr30+SRhbUscsXqrtqX9gNlvApaeQ==}
+
+  '@zilliz/milvus2-sdk-node@2.6.13':
+    resolution: {integrity: sha512-6yn/8Av9GDe1uP7LzNkS/BhVMuc2N1kB0wMweHz+PVB4vjMK8BH2QogYQ70yvgxEkP480Gj2+abPNTbAE9PK5w==}
 
   abort-controller@3.0.0:
     resolution: {integrity: sha512-h8lQ8tacZYnR3vNQTgibj+tODHI5/+l06Au2Pcriv/Gmet0eaj4TwWH41sO9wnHDiQsEj19q0drzdWdeAHtweg==}
@@ -3447,14 +3480,12 @@ snapshots:
       '@aws-crypto/util': 5.2.0
       '@aws-sdk/types': 3.973.6
       tslib: 2.8.1
-    optional: true
 
   '@aws-crypto/crc32c@5.2.0':
     dependencies:
       '@aws-crypto/util': 5.2.0
       '@aws-sdk/types': 3.973.6
       tslib: 2.8.1
-    optional: true
 
   '@aws-crypto/sha1-browser@5.2.0':
     dependencies:
@@ -3464,7 +3495,6 @@ snapshots:
       '@aws-sdk/util-locate-window': 3.965.5
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
-    optional: true
 
   '@aws-crypto/sha256-browser@5.2.0':
     dependencies:
@@ -3475,26 +3505,22 @@ snapshots:
       '@aws-sdk/util-locate-window': 3.965.5
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
-    optional: true
 
   '@aws-crypto/sha256-js@5.2.0':
     dependencies:
       '@aws-crypto/util': 5.2.0
       '@aws-sdk/types': 3.973.6
       tslib: 2.8.1
-    optional: true
 
   '@aws-crypto/supports-web-crypto@5.2.0':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@aws-crypto/util@5.2.0':
     dependencies:
       '@aws-sdk/types': 3.973.6
       '@smithy/util-utf8': 2.3.0
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/client-s3@3.1021.0':
     dependencies:
@@ -3555,7 +3581,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/core@3.973.26':
     dependencies:
@@ -3572,13 +3597,11 @@ snapshots:
       '@smithy/util-middleware': 4.2.12
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/crc64-nvme@3.972.5':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/credential-provider-env@3.972.24':
     dependencies:
@@ -3587,7 +3610,6 @@ snapshots:
       '@smithy/property-provider': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/credential-provider-http@3.972.26':
     dependencies:
@@ -3601,7 +3623,6 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-stream': 4.5.21
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/credential-provider-ini@3.972.28':
     dependencies:
@@ -3621,7 +3642,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-login@3.972.28':
     dependencies:
@@ -3635,7 +3655,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-node@3.972.29':
     dependencies:
@@ -3653,7 +3672,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-process@3.972.24':
     dependencies:
@@ -3663,7 +3681,6 @@ snapshots:
       '@smithy/shared-ini-file-loader': 4.4.7
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/credential-provider-sso@3.972.28':
     dependencies:
@@ -3677,7 +3694,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/credential-provider-web-identity@3.972.28':
     dependencies:
@@ -3690,7 +3706,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/middleware-bucket-endpoint@3.972.8':
     dependencies:
@@ -3701,7 +3716,6 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-config-provider': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-expect-continue@3.972.8':
     dependencies:
@@ -3709,7 +3723,6 @@ snapshots:
       '@smithy/protocol-http': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-flexible-checksums@3.974.6':
     dependencies:
@@ -3727,7 +3740,6 @@ snapshots:
       '@smithy/util-stream': 4.5.21
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-host-header@3.972.8':
     dependencies:
@@ -3735,21 +3747,18 @@ snapshots:
       '@smithy/protocol-http': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-location-constraint@3.972.8':
     dependencies:
       '@aws-sdk/types': 3.973.6
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-logger@3.972.8':
     dependencies:
       '@aws-sdk/types': 3.973.6
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-recursion-detection@3.972.9':
     dependencies:
@@ -3758,7 +3767,6 @@ snapshots:
       '@smithy/protocol-http': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-sdk-s3@3.972.27':
     dependencies:
@@ -3776,14 +3784,12 @@ snapshots:
       '@smithy/util-stream': 4.5.21
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-ssec@3.972.8':
     dependencies:
       '@aws-sdk/types': 3.973.6
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/middleware-user-agent@3.972.28':
     dependencies:
@@ -3795,7 +3801,6 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-retry': 4.2.13
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/nested-clients@3.996.18':
     dependencies:
@@ -3839,7 +3844,6 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/region-config-resolver@3.972.10':
     dependencies:
@@ -3848,7 +3852,6 @@ snapshots:
       '@smithy/node-config-provider': 4.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/signature-v4-multi-region@3.996.15':
     dependencies:
@@ -3858,7 +3861,6 @@ snapshots:
       '@smithy/signature-v4': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/token-providers@3.1021.0':
     dependencies:
@@ -3871,18 +3873,15 @@ snapshots:
       tslib: 2.8.1
     transitivePeerDependencies:
       - aws-crt
-    optional: true
 
   '@aws-sdk/types@3.973.6':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/util-arn-parser@3.972.3':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/util-endpoints@3.996.5':
     dependencies:
@@ -3891,12 +3890,10 @@ snapshots:
       '@smithy/url-parser': 4.2.12
       '@smithy/util-endpoints': 3.3.3
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/util-locate-window@3.965.5':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/util-user-agent-browser@3.972.8':
     dependencies:
@@ -3904,7 +3901,6 @@ snapshots:
       '@smithy/types': 4.13.1
       bowser: 2.14.1
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/util-user-agent-node@3.973.14':
     dependencies:
@@ -3914,17 +3910,14 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-config-provider': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@aws-sdk/xml-builder@3.972.16':
     dependencies:
       '@smithy/types': 4.13.1
       fast-xml-parser: 5.5.8
       tslib: 2.8.1
-    optional: true
 
-  '@aws/lambda-invoke-store@0.2.4':
-    optional: true
+  '@aws/lambda-invoke-store@0.2.4': {}
 
   '@babel/code-frame@7.29.0':
     dependencies:
@@ -4040,6 +4033,22 @@ snapshots:
     transitivePeerDependencies:
       - encoding
 
+  '@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.0)(deepmerge@4.3.1)(dotenv@17.3.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(zod@4.3.6)':
+    dependencies:
+      '@anthropic-ai/sdk': 0.27.3
+      '@browserbasehq/sdk': 2.9.0
+      '@playwright/test': 1.59.0
+      deepmerge: 4.3.1
+      dotenv: 17.3.1
+      openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
+      ws: 8.20.0
+      zod: 4.3.6
+      zod-to-json-schema: 3.25.2(zod@4.3.6)
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - utf-8-validate
+
   '@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.0)(deepmerge@4.3.1)(dotenv@17.3.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(zod@4.3.6)':
     dependencies:
       '@anthropic-ai/sdk': 0.27.3
@@ -4058,8 +4067,7 @@ snapshots:
 
   '@cfworker/json-schema@4.1.1': {}
 
-  '@colors/colors@1.6.0':
-    optional: true
+  '@colors/colors@1.6.0': {}
 
   '@cspotcode/source-map-support@0.8.1':
     dependencies:
@@ -4070,7 +4078,6 @@ snapshots:
       '@so-ric/colorspace': 1.1.6
       enabled: 2.0.0
       kuler: 2.0.0
-    optional: true
 
   '@dsnp/parquetjs@1.8.7':
     dependencies:
@@ -4091,7 +4098,6 @@ snapshots:
       - aws-crt
       - bufferutil
       - utf-8-validate
-    optional: true
 
   '@emnapi/core@1.9.1':
     dependencies:
@@ -4159,7 +4165,6 @@ snapshots:
     dependencies:
       '@grpc/proto-loader': 0.8.0
       '@js-sdsl/ordered-map': 4.4.2
-    optional: true
 
   '@grpc/proto-loader@0.8.0':
     dependencies:
@@ -4167,7 +4172,6 @@ snapshots:
       long: 5.3.2
       protobufjs: 7.5.4
       yargs: 17.7.2
-    optional: true
 
   '@hono/node-server@1.19.12(hono@4.12.9)':
     dependencies:
@@ -4221,8 +4225,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  '@js-sdsl/ordered-map@4.4.2':
-    optional: true
+  '@js-sdsl/ordered-map@4.4.2': {}
 
   '@langchain/classic@1.0.27(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(@opentelemetry/api@1.9.1)(cheerio@1.2.0)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)':
     dependencies:
@@ -4245,6 +4248,70 @@ snapshots:
       - '@opentelemetry/sdk-trace-base'
       - openai
       - ws
+
+  '@langchain/classic@1.0.27(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(@opentelemetry/api@1.9.1)(cheerio@1.2.0)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)':
+    dependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      '@langchain/openai': 1.4.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(ws@5.2.4)
+      '@langchain/textsplitters': 1.0.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))
+      handlebars: 4.7.9
+      js-yaml: 4.1.1
+      jsonpointer: 5.0.1
+      openapi-types: 12.1.3
+      uuid: 10.0.0
+      yaml: 2.8.3
+      zod: 4.3.6
+    optionalDependencies:
+      cheerio: 1.2.0
+      langsmith: 0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - '@opentelemetry/exporter-trace-otlp-proto'
+      - '@opentelemetry/sdk-trace-base'
+      - openai
+      - ws
+
+  '@langchain/community@1.1.27(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1021.0)(@aws-sdk/credential-provider-node@3.972.29)(@browserbasehq/sdk@2.9.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.0)(deepmerge@4.3.1)(dotenv@17.3.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(zod@4.3.6))(@ibm-cloud/watsonx-ai@1.7.10(typescript@6.0.2))(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(@opentelemetry/api@1.9.1)(@smithy/eventstream-codec@4.2.12)(@smithy/protocol-http@5.3.12)(@smithy/signature-v4@5.3.12)(@smithy/util-utf8@4.2.2)(@zilliz/milvus2-sdk-node@2.6.13)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.5.8)(html-to-text@9.0.5)(ibm-cloud-sdk-core@5.4.9)(ignore@7.0.5)(jsonwebtoken@9.0.3)(lodash@4.18.0)(mysql2@3.20.0(@types/node@18.19.130))(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(playwright@1.59.0)(ws@5.2.4)':
+    dependencies:
+      '@browserbasehq/stagehand': 1.14.0(@playwright/test@1.59.0)(deepmerge@4.3.1)(dotenv@17.3.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(zod@4.3.6)
+      '@ibm-cloud/watsonx-ai': 1.7.10(typescript@6.0.2)
+      '@langchain/classic': 1.0.27(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(@opentelemetry/api@1.9.1)(cheerio@1.2.0)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      '@langchain/openai': 1.4.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(ws@5.2.4)
+      binary-extensions: 2.3.0
+      flat: 5.0.2
+      ibm-cloud-sdk-core: 5.4.9
+      js-yaml: 4.1.1
+      langsmith: 0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      math-expression-evaluator: 2.0.7
+      openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
+      uuid: 10.0.0
+      zod: 4.3.6
+    optionalDependencies:
+      '@aws-crypto/sha256-js': 5.2.0
+      '@aws-sdk/client-s3': 3.1021.0
+      '@aws-sdk/credential-provider-node': 3.972.29
+      '@browserbasehq/sdk': 2.9.0
+      '@smithy/eventstream-codec': 4.2.12
+      '@smithy/protocol-http': 5.3.12
+      '@smithy/signature-v4': 5.3.12
+      '@smithy/util-utf8': 4.2.2
+      '@zilliz/milvus2-sdk-node': 2.6.13
+      cheerio: 1.2.0
+      epub2: 3.0.2(ts-toolbelt@9.6.0)
+      fast-xml-parser: 5.5.8
+      html-to-text: 9.0.5
+      ignore: 7.0.5
+      jsonwebtoken: 9.0.3
+      lodash: 4.18.0
+      mysql2: 3.20.0(@types/node@18.19.130)
+      playwright: 1.59.0
+      ws: 5.2.4
+    transitivePeerDependencies:
+      - '@opentelemetry/api'
+      - '@opentelemetry/exporter-trace-otlp-proto'
+      - '@opentelemetry/sdk-trace-base'
+      - peggy
 
   '@langchain/community@1.1.27(@aws-crypto/sha256-js@5.2.0)(@aws-sdk/client-s3@3.1021.0)(@aws-sdk/credential-provider-node@3.972.29)(@browserbasehq/sdk@2.9.0)(@browserbasehq/stagehand@1.14.0(@playwright/test@1.59.0)(deepmerge@4.3.1)(dotenv@17.3.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(zod@4.3.6))(@ibm-cloud/watsonx-ai@1.7.10(typescript@6.0.2))(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(@opentelemetry/api@1.9.1)(@smithy/eventstream-codec@4.2.12)(@smithy/protocol-http@5.3.12)(@smithy/signature-v4@5.3.12)(@smithy/util-utf8@4.2.2)(@zilliz/milvus2-sdk-node@2.6.12)(cheerio@1.2.0)(epub2@3.0.2(ts-toolbelt@9.6.0))(fast-xml-parser@5.5.8)(html-to-text@9.0.5)(ibm-cloud-sdk-core@5.4.9)(jsonwebtoken@9.0.3)(lodash@4.18.0)(mysql2@3.20.0(@types/node@18.19.130))(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(playwright@1.59.0)(ws@8.20.0)':
     dependencies:
@@ -4307,7 +4374,7 @@ snapshots:
       - openai
       - ws
 
-  '@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)':
+  '@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)':
     dependencies:
       '@cfworker/json-schema': 4.1.1
       '@standard-schema/spec': 1.1.0
@@ -4315,7 +4382,7 @@ snapshots:
       camelcase: 6.3.0
       decamelize: 1.2.0
       js-tiktoken: 1.0.21
-      langsmith: 0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+      langsmith: 0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
       mustache: 4.2.0
       p-queue: 6.6.2
       uuid: 11.1.0
@@ -4332,6 +4399,11 @@ snapshots:
       '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
       uuid: 10.0.0
 
+  '@langchain/langgraph-checkpoint@1.0.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))':
+    dependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      uuid: 10.0.0
+
   '@langchain/langgraph-sdk@1.8.2(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))':
     dependencies:
       '@types/json-schema': 7.0.15
@@ -4341,11 +4413,38 @@ snapshots:
     optionalDependencies:
       '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
 
+  '@langchain/langgraph-sdk@1.8.2(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)':
+    dependencies:
+      '@types/json-schema': 7.0.15
+      p-queue: 9.1.0
+      p-retry: 7.1.1
+      uuid: 13.0.0
+    optionalDependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      react: 19.2.4
+      react-dom: 19.2.4(react@19.2.4)
+
   '@langchain/langgraph@1.2.6(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(zod-to-json-schema@3.25.2(zod@4.3.6))(zod@4.3.6)':
     dependencies:
       '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
       '@langchain/langgraph-checkpoint': 1.0.1(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))
       '@langchain/langgraph-sdk': 1.8.2(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))
+      '@standard-schema/spec': 1.1.0
+      uuid: 10.0.0
+      zod: 4.3.6
+    optionalDependencies:
+      zod-to-json-schema: 3.25.2(zod@4.3.6)
+    transitivePeerDependencies:
+      - react
+      - react-dom
+      - svelte
+      - vue
+
+  '@langchain/langgraph@1.2.6(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(zod-to-json-schema@3.25.2(zod@4.3.6))(zod@4.3.6)':
+    dependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      '@langchain/langgraph-checkpoint': 1.0.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))
+      '@langchain/langgraph-sdk': 1.8.2(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)
       '@standard-schema/spec': 1.1.0
       uuid: 10.0.0
       zod: 4.3.6
@@ -4370,6 +4469,19 @@ snapshots:
       - '@cfworker/json-schema'
       - supports-color
 
+  '@langchain/mcp-adapters@1.1.3(@cfworker/json-schema@4.1.1)(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(@langchain/langgraph@1.2.6(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(zod-to-json-schema@3.25.2(zod@4.3.6))(zod@4.3.6))':
+    dependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      '@langchain/langgraph': 1.2.6(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(react-dom@19.2.4(react@19.2.4))(react@19.2.4)(zod-to-json-schema@3.25.2(zod@4.3.6))(zod@4.3.6)
+      '@modelcontextprotocol/sdk': 1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6)
+      debug: 4.4.3
+      zod: 4.3.6
+    optionalDependencies:
+      extended-eventsource: 1.7.0
+    transitivePeerDependencies:
+      - '@cfworker/json-schema'
+      - supports-color
+
   '@langchain/openai@1.4.1(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(ws@8.20.0)':
     dependencies:
       '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
@@ -4379,11 +4491,20 @@ snapshots:
     transitivePeerDependencies:
       - ws
 
-  '@langchain/openai@1.4.3(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))(ws@8.20.0)':
+  '@langchain/openai@1.4.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(ws@5.2.4)':
     dependencies:
-      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
       js-tiktoken: 1.0.21
-      openai: 6.33.0(ws@8.20.0)(zod@4.3.6)
+      openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
+      zod: 4.3.6
+    transitivePeerDependencies:
+      - ws
+
+  '@langchain/openai@1.4.3(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))(ws@5.2.4)':
+    dependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
+      js-tiktoken: 1.0.21
+      openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
       zod: 4.3.6
     transitivePeerDependencies:
       - ws
@@ -4391,6 +4512,11 @@ snapshots:
   '@langchain/textsplitters@1.0.1(@langchain/core@1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0))':
     dependencies:
       '@langchain/core': 1.1.38(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0)
+      js-tiktoken: 1.0.21
+
+  '@langchain/textsplitters@1.0.1(@langchain/core@1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4))':
+    dependencies:
+      '@langchain/core': 1.1.39(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4)
       js-tiktoken: 1.0.21
 
   '@modelcontextprotocol/sdk@1.29.0(@cfworker/json-schema@4.1.1)(zod@4.3.6)':
@@ -4424,50 +4550,38 @@ snapshots:
       '@tybys/wasm-util': 0.10.1
     optional: true
 
-  '@opentelemetry/api@1.9.1':
-    optional: true
+  '@opentelemetry/api@1.9.1': {}
 
   '@oxc-project/types@0.123.0': {}
 
-  '@petamoriken/float16@3.9.3':
-    optional: true
+  '@petamoriken/float16@3.9.3': {}
 
   '@playwright/test@1.59.0':
     dependencies:
       playwright: 1.59.0
 
-  '@protobufjs/aspromise@1.1.2':
-    optional: true
+  '@protobufjs/aspromise@1.1.2': {}
 
-  '@protobufjs/base64@1.1.2':
-    optional: true
+  '@protobufjs/base64@1.1.2': {}
 
-  '@protobufjs/codegen@2.0.4':
-    optional: true
+  '@protobufjs/codegen@2.0.4': {}
 
-  '@protobufjs/eventemitter@1.1.0':
-    optional: true
+  '@protobufjs/eventemitter@1.1.0': {}
 
   '@protobufjs/fetch@1.1.0':
     dependencies:
       '@protobufjs/aspromise': 1.1.2
       '@protobufjs/inquire': 1.1.0
-    optional: true
 
-  '@protobufjs/float@1.0.2':
-    optional: true
+  '@protobufjs/float@1.0.2': {}
 
-  '@protobufjs/inquire@1.1.0':
-    optional: true
+  '@protobufjs/inquire@1.1.0': {}
 
-  '@protobufjs/path@1.1.2':
-    optional: true
+  '@protobufjs/path@1.1.2': {}
 
-  '@protobufjs/pool@1.1.0':
-    optional: true
+  '@protobufjs/pool@1.1.0': {}
 
-  '@protobufjs/utf8@1.1.0':
-    optional: true
+  '@protobufjs/utf8@1.1.0': {}
 
   '@rolldown/binding-android-arm64@1.0.0-rc.13':
     optional: true
@@ -4532,12 +4646,10 @@ snapshots:
     dependencies:
       '@smithy/util-base64': 4.3.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/chunked-blob-reader@5.2.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/config-resolver@4.4.13':
     dependencies:
@@ -4547,7 +4659,6 @@ snapshots:
       '@smithy/util-endpoints': 3.3.3
       '@smithy/util-middleware': 4.2.12
       tslib: 2.8.1
-    optional: true
 
   '@smithy/core@3.23.13':
     dependencies:
@@ -4561,7 +4672,6 @@ snapshots:
       '@smithy/util-utf8': 4.2.2
       '@smithy/uuid': 1.1.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/credential-provider-imds@4.2.12':
     dependencies:
@@ -4570,7 +4680,6 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/url-parser': 4.2.12
       tslib: 2.8.1
-    optional: true
 
   '@smithy/eventstream-codec@4.2.12':
     dependencies:
@@ -4578,34 +4687,29 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-hex-encoding': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/eventstream-serde-browser@4.2.12':
     dependencies:
       '@smithy/eventstream-serde-universal': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/eventstream-serde-config-resolver@4.3.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/eventstream-serde-node@4.2.12':
     dependencies:
       '@smithy/eventstream-serde-universal': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/eventstream-serde-universal@4.2.12':
     dependencies:
       '@smithy/eventstream-codec': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/fetch-http-handler@5.3.15':
     dependencies:
@@ -4614,7 +4718,6 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-base64': 4.3.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/hash-blob-browser@4.2.13':
     dependencies:
@@ -4622,7 +4725,6 @@ snapshots:
       '@smithy/chunked-blob-reader-native': 4.2.3
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/hash-node@4.2.12':
     dependencies:
@@ -4630,44 +4732,37 @@ snapshots:
       '@smithy/util-buffer-from': 4.2.2
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/hash-stream-node@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/invalid-dependency@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/is-array-buffer@2.2.0':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/is-array-buffer@4.2.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/md5-js@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/middleware-content-length@4.2.12':
     dependencies:
       '@smithy/protocol-http': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/middleware-endpoint@4.4.28':
     dependencies:
@@ -4679,7 +4774,6 @@ snapshots:
       '@smithy/url-parser': 4.2.12
       '@smithy/util-middleware': 4.2.12
       tslib: 2.8.1
-    optional: true
 
   '@smithy/middleware-retry@4.4.46':
     dependencies:
@@ -4692,7 +4786,6 @@ snapshots:
       '@smithy/util-retry': 4.2.13
       '@smithy/uuid': 1.1.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/middleware-serde@4.2.16':
     dependencies:
@@ -4700,13 +4793,11 @@ snapshots:
       '@smithy/protocol-http': 5.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/middleware-stack@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/node-config-provider@4.3.12':
     dependencies:
@@ -4714,7 +4805,6 @@ snapshots:
       '@smithy/shared-ini-file-loader': 4.4.7
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/node-http-handler@4.5.1':
     dependencies:
@@ -4722,43 +4812,36 @@ snapshots:
       '@smithy/querystring-builder': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/property-provider@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/protocol-http@5.3.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/querystring-builder@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       '@smithy/util-uri-escape': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/querystring-parser@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/service-error-classification@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
-    optional: true
 
   '@smithy/shared-ini-file-loader@4.4.7':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/signature-v4@5.3.12':
     dependencies:
@@ -4770,7 +4853,6 @@ snapshots:
       '@smithy/util-uri-escape': 4.2.2
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/smithy-client@4.12.8':
     dependencies:
@@ -4781,53 +4863,44 @@ snapshots:
       '@smithy/types': 4.13.1
       '@smithy/util-stream': 4.5.21
       tslib: 2.8.1
-    optional: true
 
   '@smithy/types@4.13.1':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/url-parser@4.2.12':
     dependencies:
       '@smithy/querystring-parser': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-base64@4.3.2':
     dependencies:
       '@smithy/util-buffer-from': 4.2.2
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-body-length-browser@4.2.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-body-length-node@4.2.3':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-buffer-from@2.2.0':
     dependencies:
       '@smithy/is-array-buffer': 2.2.0
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-buffer-from@4.2.2':
     dependencies:
       '@smithy/is-array-buffer': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-config-provider@4.2.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-defaults-mode-browser@4.3.44':
     dependencies:
@@ -4835,7 +4908,6 @@ snapshots:
       '@smithy/smithy-client': 4.12.8
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-defaults-mode-node@4.2.48':
     dependencies:
@@ -4846,32 +4918,27 @@ snapshots:
       '@smithy/smithy-client': 4.12.8
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-endpoints@3.3.3':
     dependencies:
       '@smithy/node-config-provider': 4.3.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-hex-encoding@4.2.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-middleware@4.2.12':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-retry@4.2.13':
     dependencies:
       '@smithy/service-error-classification': 4.2.12
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-stream@4.5.21':
     dependencies:
@@ -4883,41 +4950,34 @@ snapshots:
       '@smithy/util-hex-encoding': 4.2.2
       '@smithy/util-utf8': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-uri-escape@4.2.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-utf8@2.3.0':
     dependencies:
       '@smithy/util-buffer-from': 2.2.0
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-utf8@4.2.2':
     dependencies:
       '@smithy/util-buffer-from': 4.2.2
       tslib: 2.8.1
-    optional: true
 
   '@smithy/util-waiter@4.2.14':
     dependencies:
       '@smithy/types': 4.13.1
       tslib: 2.8.1
-    optional: true
 
   '@smithy/uuid@1.1.2':
     dependencies:
       tslib: 2.8.1
-    optional: true
 
   '@so-ric/colorspace@1.1.6':
     dependencies:
       color: 5.0.3
       text-hex: 1.0.0
-    optional: true
 
   '@standard-schema/spec@1.1.0': {}
 
@@ -4955,13 +5015,12 @@ snapshots:
 
   '@types/node-fetch@2.6.13':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 24.12.2
       form-data: 4.0.5
 
   '@types/node-int64@0.4.32':
     dependencies:
-      '@types/node': 22.19.15
-    optional: true
+      '@types/node': 24.12.2
 
   '@types/node@18.19.130':
     dependencies:
@@ -4975,8 +5034,7 @@ snapshots:
     dependencies:
       undici-types: 7.16.0
 
-  '@types/q@1.5.8':
-    optional: true
+  '@types/q@1.5.8': {}
 
   '@types/react-dom@19.2.3(@types/react@19.2.14)':
     dependencies:
@@ -4988,15 +5046,13 @@ snapshots:
 
   '@types/thrift@0.10.17':
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 24.12.2
       '@types/node-int64': 0.4.32
       '@types/q': 1.5.8
-    optional: true
 
   '@types/tough-cookie@4.0.5': {}
 
-  '@types/triple-beam@1.3.5':
-    optional: true
+  '@types/triple-beam@1.3.5': {}
 
   '@types/uuid@10.0.0': {}
 
@@ -5106,7 +5162,6 @@ snapshots:
       eventemitter3: 5.0.4
       readable-stream: 4.7.0
       utilium: 1.10.1
-    optional: true
 
   '@zilliz/milvus2-sdk-node@2.6.12':
     dependencies:
@@ -5125,6 +5180,23 @@ snapshots:
       - bufferutil
       - utf-8-validate
     optional: true
+
+  '@zilliz/milvus2-sdk-node@2.6.13':
+    dependencies:
+      '@dsnp/parquetjs': 1.8.7
+      '@grpc/grpc-js': 1.14.3
+      '@grpc/proto-loader': 0.8.0
+      '@opentelemetry/api': 1.9.1
+      '@petamoriken/float16': 3.9.3
+      dayjs: 1.11.20
+      generic-pool: 3.9.0
+      lru-cache: 9.1.2
+      protobufjs: 7.5.4
+      winston: 3.19.0
+    transitivePeerDependencies:
+      - aws-crt
+      - bufferutil
+      - utf-8-validate
 
   abort-controller@3.0.0:
     dependencies:
@@ -5174,8 +5246,7 @@ snapshots:
     dependencies:
       environment: 1.1.0
 
-  ansi-regex@5.0.1:
-    optional: true
+  ansi-regex@5.0.1: {}
 
   ansi-regex@6.2.2: {}
 
@@ -5197,11 +5268,9 @@ snapshots:
       lodash: 4.18.0
     optional: true
 
-  async-limiter@1.0.1:
-    optional: true
+  async-limiter@1.0.1: {}
 
-  async@3.2.6:
-    optional: true
+  async@3.2.6: {}
 
   asynckit@0.4.0: {}
 
@@ -5245,8 +5314,7 @@ snapshots:
 
   boolbase@1.0.0: {}
 
-  bowser@2.14.1:
-    optional: true
+  bowser@2.14.1: {}
 
   brace-expansion@1.1.13:
     dependencies:
@@ -5261,11 +5329,9 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  brotli-wasm@3.0.1:
-    optional: true
+  brotli-wasm@3.0.1: {}
 
-  browser-or-node@1.3.0:
-    optional: true
+  browser-or-node@1.3.0: {}
 
   browserslist@4.28.2:
     dependencies:
@@ -5275,8 +5341,7 @@ snapshots:
       node-releases: 2.0.37
       update-browserslist-db: 1.2.3(browserslist@4.28.2)
 
-  bson@6.10.3:
-    optional: true
+  bson@6.10.3: {}
 
   buffer-equal-constant-time@1.0.1: {}
 
@@ -5284,7 +5349,6 @@ snapshots:
     dependencies:
       base64-js: 1.5.1
       ieee754: 1.2.1
-    optional: true
 
   bytes@3.1.2: {}
 
@@ -5348,7 +5412,6 @@ snapshots:
       string-width: 4.2.3
       strip-ansi: 6.0.1
       wrap-ansi: 7.0.0
-    optional: true
 
   color-convert@2.0.1:
     dependencies:
@@ -5357,23 +5420,19 @@ snapshots:
   color-convert@3.1.3:
     dependencies:
       color-name: 2.1.0
-    optional: true
 
   color-name@1.1.4: {}
 
-  color-name@2.1.0:
-    optional: true
+  color-name@2.1.0: {}
 
   color-string@2.1.4:
     dependencies:
       color-name: 2.1.0
-    optional: true
 
   color@5.0.3:
     dependencies:
       color-convert: 3.1.3
       color-string: 2.1.4
-    optional: true
 
   colorette@2.0.20: {}
 
@@ -5431,8 +5490,7 @@ snapshots:
 
   csstype@3.2.3: {}
 
-  dayjs@1.11.20:
-    optional: true
+  dayjs@1.11.20: {}
 
   debug@4.4.3:
     dependencies:
@@ -5498,11 +5556,9 @@ snapshots:
 
   emoji-regex@10.6.0: {}
 
-  emoji-regex@8.0.0:
-    optional: true
+  emoji-regex@8.0.0: {}
 
-  enabled@2.0.0:
-    optional: true
+  enabled@2.0.0: {}
 
   encodeurl@2.0.0: {}
 
@@ -5643,8 +5699,7 @@ snapshots:
 
   eventemitter3@5.0.4: {}
 
-  events@3.3.0:
-    optional: true
+  events@3.3.0: {}
 
   eventsource-parser@3.0.6: {}
 
@@ -5718,21 +5773,18 @@ snapshots:
   fast-xml-builder@1.1.4:
     dependencies:
       path-expression-matcher: 1.2.0
-    optional: true
 
   fast-xml-parser@5.5.8:
     dependencies:
       fast-xml-builder: 1.1.4
       path-expression-matcher: 1.2.0
       strnum: 2.2.2
-    optional: true
 
   fdir@6.5.0(picomatch@4.0.4):
     optionalDependencies:
       picomatch: 4.0.4
 
-  fecha@4.2.3:
-    optional: true
+  fecha@4.2.3: {}
 
   file-entry-cache@8.0.0:
     dependencies:
@@ -5776,8 +5828,7 @@ snapshots:
 
   flatted@3.4.2: {}
 
-  fn.name@1.1.0:
-    optional: true
+  fn.name@1.1.0: {}
 
   follow-redirects@1.15.11(debug@4.4.3):
     optionalDependencies:
@@ -5815,13 +5866,11 @@ snapshots:
       is-property: 1.0.2
     optional: true
 
-  generic-pool@3.9.0:
-    optional: true
+  generic-pool@3.9.0: {}
 
   gensync@1.0.0-beta.2: {}
 
-  get-caller-file@2.0.5:
-    optional: true
+  get-caller-file@2.0.5: {}
 
   get-east-asian-width@1.5.0: {}
 
@@ -5970,8 +6019,7 @@ snapshots:
 
   inherits@2.0.4: {}
 
-  int53@1.0.0:
-    optional: true
+  int53@1.0.0: {}
 
   ip-address@10.1.0: {}
 
@@ -5979,8 +6027,7 @@ snapshots:
 
   is-extglob@2.1.1: {}
 
-  is-fullwidth-code-point@3.0.0:
-    optional: true
+  is-fullwidth-code-point@3.0.0: {}
 
   is-fullwidth-code-point@4.0.0: {}
 
@@ -6001,8 +6048,7 @@ snapshots:
   is-property@1.0.2:
     optional: true
 
-  is-stream@2.0.1:
-    optional: true
+  is-stream@2.0.1: {}
 
   is-stream@3.0.0: {}
 
@@ -6011,7 +6057,6 @@ snapshots:
   isomorphic-ws@4.0.1(ws@5.2.4):
     dependencies:
       ws: 5.2.4
-    optional: true
 
   isstream@0.1.2: {}
 
@@ -6071,8 +6116,20 @@ snapshots:
     dependencies:
       json-buffer: 3.0.1
 
-  kuler@2.0.0:
-    optional: true
+  kuler@2.0.0: {}
+
+  langsmith@0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@5.2.4)(zod@4.3.6))(ws@5.2.4):
+    dependencies:
+      '@types/uuid': 10.0.0
+      chalk: 5.6.2
+      console-table-printer: 2.15.0
+      p-queue: 6.6.2
+      semver: 7.7.4
+      uuid: 10.0.0
+    optionalDependencies:
+      '@opentelemetry/api': 1.9.1
+      openai: 6.33.0(ws@5.2.4)(zod@4.3.6)
+      ws: 5.2.4
 
   langsmith@0.5.15(@opentelemetry/api@1.9.1)(openai@6.33.0(ws@8.20.0)(zod@4.3.6))(ws@8.20.0):
     dependencies:
@@ -6176,8 +6233,7 @@ snapshots:
     dependencies:
       p-locate: 5.0.0
 
-  lodash.camelcase@4.3.0:
-    optional: true
+  lodash.camelcase@4.3.0: {}
 
   lodash.includes@4.3.0: {}
 
@@ -6214,17 +6270,14 @@ snapshots:
       ms: 2.1.3
       safe-stable-stringify: 2.5.0
       triple-beam: 1.4.1
-    optional: true
 
-  long@5.3.2:
-    optional: true
+  long@5.3.2: {}
 
   lru-cache@5.1.1:
     dependencies:
       yallist: 3.1.1
 
-  lru-cache@9.1.2:
-    optional: true
+  lru-cache@9.1.2: {}
 
   lru.min@1.1.4:
     optional: true
@@ -6308,8 +6361,7 @@ snapshots:
     dependencies:
       whatwg-url: 5.0.0
 
-  node-int64@0.4.0:
-    optional: true
+  node-int64@0.4.0: {}
 
   node-releases@2.0.37: {}
 
@@ -6336,7 +6388,6 @@ snapshots:
   one-time@1.0.0:
     dependencies:
       fn.name: 1.1.0
-    optional: true
 
   onetime@6.0.0:
     dependencies:
@@ -6345,6 +6396,11 @@ snapshots:
   onetime@7.0.0:
     dependencies:
       mimic-function: 5.0.1
+
+  openai@6.33.0(ws@5.2.4)(zod@4.3.6):
+    optionalDependencies:
+      ws: 5.2.4
+      zod: 4.3.6
 
   openai@6.33.0(ws@8.20.0)(zod@4.3.6):
     optionalDependencies:
@@ -6419,8 +6475,7 @@ snapshots:
 
   path-exists@4.0.0: {}
 
-  path-expression-matcher@1.2.0:
-    optional: true
+  path-expression-matcher@1.2.0: {}
 
   path-key@3.1.1: {}
 
@@ -6459,8 +6514,7 @@ snapshots:
 
   prettier@3.8.1: {}
 
-  process@0.11.10:
-    optional: true
+  process@0.11.10: {}
 
   protobufjs@7.5.4:
     dependencies:
@@ -6474,9 +6528,8 @@ snapshots:
       '@protobufjs/path': 1.1.2
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
-      '@types/node': 22.19.15
+      '@types/node': 24.12.2
       long: 5.3.2
-    optional: true
 
   proxy-addr@2.0.7:
     dependencies:
@@ -6491,8 +6544,7 @@ snapshots:
 
   punycode@2.3.1: {}
 
-  q@1.5.1:
-    optional: true
+  q@1.5.1: {}
 
   qs@6.15.0:
     dependencies:
@@ -6521,7 +6573,6 @@ snapshots:
       inherits: 2.0.4
       string_decoder: 1.3.0
       util-deprecate: 1.0.2
-    optional: true
 
   readable-stream@4.7.0:
     dependencies:
@@ -6530,10 +6581,8 @@ snapshots:
       events: 3.3.0
       process: 0.11.10
       string_decoder: 1.3.0
-    optional: true
 
-  require-directory@2.1.1:
-    optional: true
+  require-directory@2.1.1: {}
 
   require-from-string@2.0.2: {}
 
@@ -6585,8 +6634,7 @@ snapshots:
 
   safe-buffer@5.2.1: {}
 
-  safe-stable-stringify@2.5.0:
-    optional: true
+  safe-stable-stringify@2.5.0: {}
 
   safer-buffer@2.1.2: {}
 
@@ -6679,8 +6727,7 @@ snapshots:
       ansi-styles: 6.2.3
       is-fullwidth-code-point: 5.1.0
 
-  snappyjs@0.7.0:
-    optional: true
+  snappyjs@0.7.0: {}
 
   source-map-js@1.2.1: {}
 
@@ -6689,8 +6736,7 @@ snapshots:
   sql-escaper@1.3.3:
     optional: true
 
-  stack-trace@0.0.10:
-    optional: true
+  stack-trace@0.0.10: {}
 
   statuses@2.0.2: {}
 
@@ -6701,7 +6747,6 @@ snapshots:
       emoji-regex: 8.0.0
       is-fullwidth-code-point: 3.0.0
       strip-ansi: 6.0.1
-    optional: true
 
   string-width@7.2.0:
     dependencies:
@@ -6712,12 +6757,10 @@ snapshots:
   string_decoder@1.3.0:
     dependencies:
       safe-buffer: 5.2.1
-    optional: true
 
   strip-ansi@6.0.1:
     dependencies:
       ansi-regex: 5.0.1
-    optional: true
 
   strip-ansi@7.2.0:
     dependencies:
@@ -6727,8 +6770,7 @@ snapshots:
 
   strip-json-comments@3.1.1: {}
 
-  strnum@2.2.2:
-    optional: true
+  strnum@2.2.2: {}
 
   strtok3@10.3.5:
     dependencies:
@@ -6738,8 +6780,7 @@ snapshots:
     dependencies:
       has-flag: 4.0.0
 
-  text-hex@1.0.0:
-    optional: true
+  text-hex@1.0.0: {}
 
   thrift@0.21.0:
     dependencies:
@@ -6751,7 +6792,6 @@ snapshots:
     transitivePeerDependencies:
       - bufferutil
       - utf-8-validate
-    optional: true
 
   tinyglobby@0.2.15:
     dependencies:
@@ -6779,8 +6819,7 @@ snapshots:
 
   tr46@0.0.3: {}
 
-  triple-beam@1.4.1:
-    optional: true
+  triple-beam@1.4.1: {}
 
   ts-api-utils@2.5.0(typescript@6.0.2):
     dependencies:
@@ -6809,14 +6848,13 @@ snapshots:
 
   ts-type@3.0.13(ts-toolbelt@9.6.0):
     dependencies:
-      '@types/node': 22.19.15
+      '@types/node': 24.12.2
       ts-toolbelt: 9.6.0
       tslib: 2.8.1
       typedarray-dts: 1.0.0
     optional: true
 
-  tslib@2.8.1:
-    optional: true
+  tslib@2.8.1: {}
 
   type-check@0.4.0:
     dependencies:
@@ -6879,15 +6917,13 @@ snapshots:
       querystringify: 2.2.0
       requires-port: 1.0.0
 
-  util-deprecate@1.0.2:
-    optional: true
+  util-deprecate@1.0.2: {}
 
   utilium@1.10.1:
     dependencies:
       eventemitter3: 5.0.4
     optionalDependencies:
       '@xterm/xterm': 5.5.0
-    optional: true
 
   uuid@10.0.0: {}
 
@@ -6897,8 +6933,7 @@ snapshots:
 
   v8-compile-cache-lib@3.0.1: {}
 
-  varint@6.0.0:
-    optional: true
+  varint@6.0.0: {}
 
   vary@1.1.2: {}
 
@@ -6938,7 +6973,6 @@ snapshots:
       logform: 2.7.0
       readable-stream: 3.6.2
       triple-beam: 1.4.1
-    optional: true
 
   winston@3.19.0:
     dependencies:
@@ -6953,7 +6987,6 @@ snapshots:
       stack-trace: 0.0.10
       triple-beam: 1.4.1
       winston-transport: 4.9.0
-    optional: true
 
   word-wrap@1.2.5: {}
 
@@ -6964,7 +6997,6 @@ snapshots:
       ansi-styles: 4.3.0
       string-width: 4.2.3
       strip-ansi: 6.0.1
-    optional: true
 
   wrap-ansi@9.0.2:
     dependencies:
@@ -6977,7 +7009,6 @@ snapshots:
   ws@5.2.4:
     dependencies:
       async-limiter: 1.0.1
-    optional: true
 
   ws@8.20.0: {}
 
@@ -6990,18 +7021,15 @@ snapshots:
   xmlbuilder@11.0.1:
     optional: true
 
-  xxhash-wasm@1.1.0:
-    optional: true
+  xxhash-wasm@1.1.0: {}
 
-  y18n@5.0.8:
-    optional: true
+  y18n@5.0.8: {}
 
   yallist@3.1.1: {}
 
   yaml@2.8.3: {}
 
-  yargs-parser@21.1.1:
-    optional: true
+  yargs-parser@21.1.1: {}
 
   yargs@17.7.2:
     dependencies:
@@ -7012,7 +7040,6 @@ snapshots:
       string-width: 4.2.3
       y18n: 5.0.8
       yargs-parser: 21.1.1
-    optional: true
 
   yn@3.1.1: {}
 
