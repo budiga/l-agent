@@ -1,3 +1,4 @@
 packages:
   - "l-agent-rag"
   - "l-agent-tool"
+  - "nest-langchain"
